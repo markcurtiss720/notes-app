@@ -8,5 +8,10 @@
         "title": "Go to store",
         "text": "eggs\nbread\nbutter\ncheese\n",
         "id": "1cd2ad97-c802-4e16-9ef8-141aa6d66ae2"
+    },
+    {
+        "title": "Do chores",
+        "text": "Laundry\nmake bed\noverthrow small country\n",
+        "id": "fc22b485-f9a7-4043-9ca4-a2475624df28"
     }
 ]
