@@ -1,21 +1,34 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 
+//Feedback router imnport
+const api = require('./routes/index.js');
+
+const PORT = 3001;
+
 const app = express();
-const PORT = process.env.PORT || 3001
 
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/assets/index.html'))
-);
-
-app.use(express.urlencoded({ extended: true }));
+//Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
-app.use('/public/assets', express.static(__dirname + 'public/assets'));
+app.use(express.urlencoded({ extended: true }));
+app.use('/api', api);
+//Middleware to serve up static assets from the public folder
+app.use(express.static('public'));
 
-require('./routes/api-routes')(app);
-require('./routes/html-routes')(app);
 
-app.listen(PORT, function() {
-    console.log("APP listening on PORT" + PORT);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
+
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+})
