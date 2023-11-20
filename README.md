@@ -21,6 +21,7 @@ To install you need to use node.js, express and uuid intalled through node.js.
 ## Usage
 
 Follow this link to the deployed application.
+https://rocky-beach-09930-036ddda07d93.herokuapp.com/
 
 When application loads you will see the home page. click the get started button to go to the notes page.
 ![Homepage](./public/assets/images/Note-Taker-homepage.png)
